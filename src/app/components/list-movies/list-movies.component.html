@@ -1,0 +1,6 @@
+<h2>LISTA DE PELICULAS</h2>
+<div *ngFor="let movie of movies$ | async">
+    <h2>{{ movie.title }}</h2>
+    <app-input-check-fav [(value)]="movie.isFav" (change)="handlerChange($event,movie)"></app-input-check-fav>
+</div>
+
