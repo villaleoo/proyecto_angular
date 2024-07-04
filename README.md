@@ -43,7 +43,7 @@ API utilizada: https://developer.themoviedb.org/reference/intro/getting-started
     Se utilizan distintas interfaces para:
     
     - Arreglo de peliculas: Movie
-    - Objeto Response de la API: ApiObject
+    - Objeto Response de la API: objectAPI
     - Detalles de pelicula: MovieDetail
 
 ## LocalStorage
