@@ -1,5 +1,12 @@
 # ngMovies - ANGULAR 2024 
-Buscador de peliculas online a traves de la api movieDB, permite agregar peliculas a favoritos utilizando localStorage
+> Datos Alumno
+    Leopoldo Villa
+    Dni: 41211697.
+    Email: villaleoo@hotmail.com
+    Sede: Tandil.
+    https://stackblitz.com/~/github.com/villaleoo/proyecto_angular
+
+Buscador de peliculas, permite agregar peliculas a favoritos utilizando localStorage.
 
 API utilizada: https://developer.themoviedb.org/reference/intro/getting-started
 
