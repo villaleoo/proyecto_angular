@@ -12,7 +12,6 @@ export class FavoriteMoviesService{
 
   constructor() { }
 
-  
   add(movie:Movie){
     
     this.favsList.push(movie);
@@ -34,7 +33,6 @@ export class FavoriteMoviesService{
 
     inputElement.checked ? this.add(movie) : this.remove(movie);
    
-    
   }
 
   getLocalStorageMovies(): Movie[]{
@@ -53,4 +51,5 @@ export class FavoriteMoviesService{
   private clear(): void {
     localStorage.clear();
   }
+
 }

@@ -1,1 +1,6 @@
-<app-list-fav-movies></app-list-fav-movies>
+<div *ngIf="movieList.length === 0" class="not-fav">
+    <p>No hay peliculas favoritas :[</p>
+</div>
+<div class="fav-container">
+    <app-list-movies [movies]="movieList"></app-list-movies>
+</div>

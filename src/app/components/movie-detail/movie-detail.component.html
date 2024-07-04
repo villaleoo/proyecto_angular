@@ -1,0 +1,45 @@
+@if(!movie){
+    <p>cargandooooooooooooooooooooooooooooooooooo</p>
+}@else{
+    <article>
+        <div class='detail-container' [ngStyle]="{'background-image': 'url(' + movie.backdrop_path + ')',
+            'background-repeat': 'no-repeat',
+            'background-size': 'cover',
+            'background-position': 'center'
+          }">
+          <app-input-check-fav [(value)]="movie.isFav" (change)="handlerChange($event,movie)"></app-input-check-fav>
+          <div class="movie-description-container">
+              @if(movie.isFav){
+                  <div class='movie-fav'>
+                    <a [routerLink]="['/favoritos']">
+                        <p>en tus favoritos</p>
+                    </a>
+                  </div>
+                  
+              }
+              <div class="movie-description">
+                  <h1>{{movie.title}}</h1>
+                  <h5>{{movie.overview}}</h5>
+              </div>
+          </div>
+        </div>
+        <div class="metrics-container">
+            <h4>🎥 {{getYearMovie(movie.release_date)}}</h4>
+            <h4>⏱ {{movie.runtime}}min. </h4>
+            <h4>👁 {{parseBigNumber(movie.popularity)}}</h4>
+            <h4>⭐ {{parseSmallNumber(movie.vote_average)}}</h4>
+            
+        </div>
+            
+    </article>
+    
+    
+}
+
+
+<!--  [ngStyle]="{
+  'background-image': 'url(' + movie.backdrop_path + ')',
+  'background-repeat': 'no-repeat',
+  'background-size': 'cover',
+  'background-position': 'center'
+}" -->

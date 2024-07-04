@@ -1,6 +1,14 @@
-<h2>LISTA DE PELICULAS</h2>
-<div *ngFor="let movie of movies$ | async">
-    <h2>{{ movie.title }}</h2>
-    <app-input-check-fav [(value)]="movie.isFav" (change)="handlerChange($event,movie)"></app-input-check-fav>
-</div>
-
+<section>
+    @if(movies){
+        @for(movie of movies; track movie.id){
+            <article>
+                <div class="card">
+                    <app-input-check-fav class="btn-fav" [(value)]="movie.isFav" (change)="handlerChange($event,movie)"></app-input-check-fav>
+                    <a [routerLink]="['/pelicula', movie.id]">
+                        <img [src]='movie.poster_path'>
+                    </a>
+                </div>
+             </article>
+        }
+    }
+</section>
