@@ -1,5 +1,7 @@
 @if(!movie){
-    <p>cargandooooooooooooooooooooooooooooooooooo</p>
+    <div class="spinner-container">
+        <app-spinner></app-spinner>
+    </div>
 }@else{
     <article>
         <div class='detail-container' [ngStyle]="{'background-image': 'url(' + movie.backdrop_path + ')',

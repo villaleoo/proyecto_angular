@@ -13,6 +13,7 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
 import { MovieComponent } from './pages/movie/movie.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 
@@ -27,7 +28,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MovieDetailComponent,
     MovieComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

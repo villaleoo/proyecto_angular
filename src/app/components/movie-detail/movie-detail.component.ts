@@ -42,9 +42,11 @@ export class MovieDetailComponent implements OnInit {
 
 
     this.movieSubscription = this.movieDB.getById(this.id).subscribe(obj => {
-      this.movie=obj;
-      this.titleService.setTitle(obj.title);
-      this.movie$.next(obj);
+      setTimeout(()=>{
+        this.movie=obj;                               //timeout utilizado solo para mejor vision de spinner
+        this.titleService.setTitle(obj.title);
+        this.movie$.next(obj);
+      },1000)
     });
      
   }

@@ -22,7 +22,9 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void {
     this.titleService.setTitle("Inicio | ngMovies");
     this.moviesSubscription = this.movieDB.getAllLatest().subscribe(obj => {
-      this.moviesList=obj.results;
+      setTimeout(()=>{
+        this.moviesList=obj.results;                           //timeout utilizado solo para mejor vision de spinner
+      }, 1000)
     });
     
   }
