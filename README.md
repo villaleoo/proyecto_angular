@@ -1,10 +1,10 @@
 # ngMovies - ANGULAR 2024 
 > Datos Alumno
-    Leopoldo Villa
-    Dni: 41211697.
-    Email: villaleoo@hotmail.com
-    Sede: Tandil.
-    https://stackblitz.com/~/github.com/villaleoo/proyecto_angular
+    - Leopoldo Villa
+    - Dni: 41211697.
+    - Email: villaleoo@hotmail.com
+    - Sede: Tandil.
+    - https://stackblitz.com/~/github.com/villaleoo/proyecto_angular
 
 Buscador de peliculas, permite agregar peliculas a favoritos utilizando localStorage.
 
