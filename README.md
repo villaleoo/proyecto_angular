@@ -39,6 +39,13 @@ API utilizada: https://developer.themoviedb.org/reference/intro/getting-started
     /pelicula/{id_pelicula}
     /favoritos
 
+## Types
+    Se utilizan distintas interfaces para:
+    
+    - Arreglo de peliculas: Movie
+    - Objeto Response de la API: ApiObject
+    - Detalles de pelicula: MovieDetail
+
 ## LocalStorage
     Utilizado para persistir las peliculas favoritas y que puedan ser accedidas al moverse entre rutas.
 
