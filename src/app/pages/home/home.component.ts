@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Subscription } from 'rxjs';
 import { Movie } from '../../../types/types';
 import { MovieDataService } from '../../services/movie-data.service';
 
@@ -12,7 +11,6 @@ import { MovieDataService } from '../../services/movie-data.service';
 export class HomeComponent implements OnInit{
 
   moviesList:Movie[]=[];
-  moviesSubscription: Subscription | undefined;
 
   constructor(
     private movieDB: MovieDataService,
@@ -21,7 +19,7 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void {
     this.titleService.setTitle("Inicio | ngMovies");
-    this.moviesSubscription = this.movieDB.getAllLatest().subscribe(obj => {
+    this.movieDB.getAllLatest().subscribe(obj => {
       setTimeout(()=>{
         this.moviesList=obj.results;                           //timeout utilizado solo para mejor vision de spinner
       }, 1000)
@@ -29,10 +27,4 @@ export class HomeComponent implements OnInit{
     
   }
 
-  ngOnDestroy(): void {
-    if (this.moviesSubscription) {
-      this.moviesSubscription.unsubscribe();
-    }
-  }
-  
 }
