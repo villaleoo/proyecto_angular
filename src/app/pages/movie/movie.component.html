@@ -1,1 +1,7 @@
-<app-movie-detail></app-movie-detail>
+@if(!movie){
+    <div class="spinner-container">
+        <app-spinner></app-spinner>
+    </div>
+}@else{
+    <app-movie-detail [movie]="movie"></app-movie-detail>
+}

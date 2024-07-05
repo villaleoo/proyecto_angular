@@ -1,11 +1,8 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
-import { MovieDataService } from '../../services/movie-data.service';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { Component, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { MovieDetail } from '../../../types/types';
 import { FavoriteMoviesService } from '../../services/favorite-movies.service';
 import { Helper } from '../../utils/Helper';
-import { Title } from '@angular/platform-browser';
+
 
 
 @Component({
@@ -13,44 +10,28 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './movie-detail.component.html',
   styleUrl: './movie-detail.component.scss'
 })
-export class MovieDetailComponent implements OnInit {
-  id: number=-1;
-  maxID=99999999;
+export class MovieDetailComponent implements OnInit, OnDestroy{
+  
+  @Input()
   movie:MovieDetail | null=null;
-  movie$: BehaviorSubject<MovieDetail|null> = new BehaviorSubject<MovieDetail|null>(null);
-  movieSubscription: Subscription | undefined;
+ 
   private helper:Helper;
 
-  constructor(
-    private url:ActivatedRoute,
-    private router:Router,
-    private movieDB:MovieDataService,
-    private favsService: FavoriteMoviesService,
-    private cdr: ChangeDetectorRef,
-    private titleService:Title){
+  constructor(private favsService: FavoriteMoviesService){
       this.helper=new Helper();
-    }
+
+  }
 
   ngOnInit(): void {
-    this.handleId();
+
    
-    
-
-    if(!this.id || this.id <= 0 || this.id > this.maxID){
-      this.router.navigate(['/home']);
-    }
-
-
-    this.movieSubscription = this.movieDB.getById(this.id).subscribe(obj => {
-      setTimeout(()=>{
-        this.movie=obj;                               //timeout utilizado solo para mejor vision de spinner
-        this.titleService.setTitle(obj.title);
-        this.movie$.next(obj);
-      },1000)
-    });
      
   }
 
+  ngOnDestroy(): void {
+    
+  }
+  
   truncateText(text: string, maxLength: number): string {
     if (!text || text.length <= maxLength) {
       return text;
@@ -88,15 +69,7 @@ export class MovieDetailComponent implements OnInit {
   }
 
   handlerChange(event: Event, movie: MovieDetail):void{
-    this.cdr.markForCheck();
     this.favsService.update(event,this.helper.parseMovieDetail(movie));
   }
 
-  
-  private handleId():void{
-    this.url.paramMap.subscribe(params => {
-      const _id = params.get('id');
-      this.id = _id ? parseInt(_id, 10) : -1;
-    });
-  }
 }

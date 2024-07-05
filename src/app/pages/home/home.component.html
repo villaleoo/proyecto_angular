@@ -1,4 +1,8 @@
-<div *ngIf="moviesList.length === 0" class="spinner-container">
-    <app-spinner></app-spinner>
-</div>
-<app-list-movies [movies]="moviesList"></app-list-movies>
+@if(moviesList.length === 0){
+    <div class="spinner-container">
+        <app-spinner></app-spinner>
+    </div>
+
+}@else{
+    <app-list-movies [movies]="moviesList"></app-list-movies>
+}

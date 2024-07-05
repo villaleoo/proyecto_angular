@@ -1,8 +1,4 @@
-@if(!movie){
-    <div class="spinner-container">
-        <app-spinner></app-spinner>
-    </div>
-}@else{
+@if(movie){
     <article>
         <div class='detail-container' [ngStyle]="{'background-image': 'url(' + movie.backdrop_path + ')',
             'background-repeat': 'no-repeat',
@@ -34,14 +30,4 @@
         </div>
             
     </article>
-    
-    
 }
-
-
-<!--  [ngStyle]="{
-  'background-image': 'url(' + movie.backdrop_path + ')',
-  'background-repeat': 'no-repeat',
-  'background-size': 'cover',
-  'background-position': 'center'
-}" -->
