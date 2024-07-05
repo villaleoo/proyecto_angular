@@ -15,8 +15,10 @@ export class MovieDataService {
   private API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyOGJkMWMwODVjM2IxNDNiNThmMzkyOTM3N2QxNGRlNyIsIm5iZiI6MTcxOTExNTg1Mi42NTM5MTgsInN1YiI6IjYyYWUxOTFlMDljMjRjMDA2MWE3ZmM0YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.KCgREO4YRAdT5fOL1YXAvBKVnm55fpolQgYYBPGkWM4';
   private WIDTH_POSTER= 'w200';
 
-  constructor(private http: HttpClient , 
-    private favList:FavoriteMoviesService,) { }
+  constructor(
+    private http: HttpClient , 
+    private favList:FavoriteMoviesService,
+  ) { }
 
   public getAllLatest() {
 
@@ -59,7 +61,5 @@ export class MovieDataService {
     )
 
   }
-
-
 
 }

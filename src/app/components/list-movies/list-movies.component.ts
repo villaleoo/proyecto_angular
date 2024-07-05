@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnInit,  } from '@angular/core';
+import { Component, Input, OnInit,  } from '@angular/core';
 import { Movie } from '../../../types/types';
 import { FavoriteMoviesService } from '../../services/favorite-movies.service';
 
@@ -14,7 +14,6 @@ export class ListMoviesComponent implements OnInit{
 
   constructor(
     private favsService: FavoriteMoviesService,
-    private cdr: ChangeDetectorRef
   ){}
 
   ngOnInit(): void {
@@ -22,7 +21,6 @@ export class ListMoviesComponent implements OnInit{
   }
   
   handlerChange(event: Event, movie: Movie):void{
-    this.cdr.markForCheck();
     this.favsService.update(event,movie);
   }
 
